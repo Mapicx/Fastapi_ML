@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancer Prediction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Cancer Prediction</h1>
+        <form id="predictForm">
+            <div class="form-group">
+                <label for="Clump_Thickness">Clump Thickness</label>
+                <input type="number" id="Clump_Thickness" name="Clump_Thickness" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Uniformity_of_Cell_Size">Uniformity of Cell Size</label>
+                <input type="number" id="Uniformity_of_Cell_Size" name="Uniformity_of_Cell_Size" min="1" max="10"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="Uniformity_of_Cell_Shape">Uniformity of Cell Shape</label>
+                <input type="number" id="Uniformity_of_Cell_Shape" name="Uniformity_of_Cell_Shape" min="1" max="10"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="Marginal_Adhesion">Marginal Adhesion</label>
+                <input type="number" id="Marginal_Adhesion" name="Marginal_Adhesion" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Single_Epithelial_Cell_Size">Single Epithelial Cell Size</label>
+                <input type="number" id="Single_Epithelial_Cell_Size" name="Single_Epithelial_Cell_Size" min="1"
+                    max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Bare_Nuclei">Bare Nuclei</label>
+                <input type="number" id="Bare_Nuclei" name="Bare_Nuclei" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Bland_Chromatin">Bland Chromatin</label>
+                <input type="number" id="Bland_Chromatin" name="Bland_Chromatin" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Normal_Nucleoli">Normal Nucleoli</label>
+                <input type="number" id="Normal_Nucleoli" name="Normal_Nucleoli" min="1" max="10" required>
+            </div>
+            <div class="form-group">
+                <label for="Mitoses">Mitoses</label>
+                <input type="number" id="Mitoses" name="Mitoses" min="1" max="10" required>
+            </div>
+            <button type="submit" id="submitBtn">Predict</button>
+        </form>
+        <div id="result" class="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
