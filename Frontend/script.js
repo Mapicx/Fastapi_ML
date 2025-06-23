@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('predictForm');
     const resultDiv = document.getElementById('result');
     const submitBtn = document.getElementById('submitBtn');
+    
+    // Production API endpoint
+    const API_URL = 'https://fastapi-ml-n4jj.onrender.com/predict';
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -18,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
         try {
-            const response = await fetch('http://127.0.0.1:5000/predict', {
+            const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -27,7 +30,14 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             if (!response.ok) {
-                throw new Error('Prediction failed. Please check your input.');
+                // Get error details from response if available
+                let errorMsg = 'Prediction failed. Please check your input.';
+                try {
+                    const errorData = await response.json();
+                    if (errorData.detail) errorMsg = errorData.detail;
+                } catch {}
+                
+                throw new Error(errorMsg);
             }
 
             const result = await response.json();
@@ -49,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (err) {
             resultDiv.innerHTML = `<span style="color:#c53030;">${err.message}</span>`;
             resultDiv.style.background = "#ffeaea";
-            resultDiv.style.color = "#c53030";
         } finally {
             resultDiv.classList.add('show');
             submitBtn.disabled = false;
