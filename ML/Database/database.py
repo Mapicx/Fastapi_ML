@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from .config import settings
 
-URL = f'postgresql://{settings.DATABASE_USERNAME}:{settings.DATABASE_PASSWORD}@{settings.DATABASE_HOSTNAME}:{settings.DATABASE_PORT}/{settings.DATABASE_NAME}'
+URL = f'postgresql://{settings.ML_DATABASE_USERNAME}:{settings.ML_DATABASE_PASSWORD}@{settings.ML_DATABASE_HOSTNAME}:{settings.ML_DATABASE_PORT}/{settings.ML_DATABASE_NAME}'
 
 Base = declarative_base()  # Move this here
 
